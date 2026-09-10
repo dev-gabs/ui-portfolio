@@ -1,0 +1,63 @@
+import { ProjectData } from '../types/project';
+
+export const projectsData: ProjectData[] = [
+  {
+    id: 'project-legal-contract',
+    index: '01 / 04',
+    title: 'Legal Contract Redesign',
+    subtitle: 'CASE STUDY // ARCHITECTURE & VISUAL LOGIC',
+    category: 'legal',
+    categoryLabels: ['UX / UI', 'LEGAL DESIGN'],
+    description: 'Simplifying complex legal language through intentional visual hierarchy, structured visual logic, and conversational navigation modules.',
+    tools: ['tool-figma', 'tool-illustrator', 'tool-chatgpt'],
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA-rS4IkXZLtIXLFKYGYCMWNUvKcDykAfKZg-NhpXbhnbHYMo28gf_5Lz2nnbyAOeOLgu9QtteHZWnPw9WjhNcu_o5_feQQKqD9cZqPyrxJMBqIciMWWLmdf05VDBIABdV1RYudXBafuPscZ9lxbk7D9qcoOBeIt-bCf3mAnZc704_mhkRKDDgPnIHZ6MqxiK4qRQKgF3hNHvoFGWJ39sFkef8nzAe0Hp2SBJWkKbQC1xVn5z4KRlAYq9ofYDlTqy4G6Q',
+    isFlagship: true,
+    publishedMeta: 'FEATURED CASE STUDY',
+    caseStudyUrl: '#about',
+  },
+  {
+    id: 'project-eden-app',
+    index: '02 / 04',
+    title: 'Eden App',
+    subtitle: 'Mobile Architecture',
+    category: 'ux',
+    categoryLabels: ['PRODUCT DESIGN', 'UX/UI'],
+    description: 'Design system, modular mobile components, and cross-platform UX ecosystem.',
+    tools: ['tool-figma', 'tool-notion', 'tool-vscode'],
+    gradientBackground: 'linear-gradient(135deg, #090e1a 0%, #1e1b4b 60%, #312e81 100%)',
+    caseStudyUrl: '#about',
+  },
+  {
+    id: 'project-brand-identity',
+    index: '03 / 04',
+    title: 'Brand Identity',
+    subtitle: 'Nova Identity System',
+    category: 'branding',
+    categoryLabels: ['BRANDING', 'VISUAL DESIGN'],
+    description: 'Comprehensive brand guide, typography rules, and vector identity guidelines.',
+    tools: ['tool-illustrator', 'tool-photoshop', 'tool-indesign'],
+    gradientBackground: 'linear-gradient(135deg, #0a0f1d 0%, #451a03 60%, #1e293b 100%)',
+    caseStudyUrl: '#about',
+  },
+  {
+    id: 'project-3d-character',
+    index: '04 / 04',
+    title: '3D Character',
+    subtitle: 'Spatial Avatar & Environment',
+    category: '3d',
+    categoryLabels: ['3D MODELING', 'EXPERIMENTAL'],
+    description: 'Stylized 3D modeling, lighting setup, and tactile asset rendering for spatial experiences.',
+    tools: ['tool-blender', 'tool-photoshop', 'tool-davinci'],
+    gradientBackground: 'linear-gradient(135deg, #022c22 0%, #0a101f 60%, #064e3b 100%)',
+    caseStudyUrl: '#about',
+  },
+];
+
+export const projectFilterCategories = [
+  { id: 'all', label: 'All' },
+  { id: 'ux', label: 'UX/UI' },
+  { id: 'legal', label: 'Legal Design' },
+  { id: 'branding', label: 'Branding' },
+  { id: '3d', label: '3D' },
+  { id: 'experimental', label: 'Experimental' },
+] as const;

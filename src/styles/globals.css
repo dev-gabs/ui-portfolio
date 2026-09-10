@@ -1,0 +1,87 @@
+/**
+ * GLOBAL STYLES & TECHNICAL CANVAS BASE
+ */
+@import './design-system.css';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-navy-800);
+  background-color: var(--color-canvas);
+  background-image: 
+    linear-gradient(to right, rgba(99, 102, 241, 0.032) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(99, 102, 241, 0.032) 1px, transparent 1px);
+  background-size: 36px 36px;
+  background-attachment: fixed;
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+  line-height: 1.6;
+}
+
+/* Text Selection */
+::selection {
+  background-color: var(--color-accent-indigo);
+  color: #ffffff;
+}
+
+/* Dotted texture for capsule and floating glass elements */
+.nav-dotted-texture {
+  background-image: radial-gradient(rgba(99, 102, 241, 0.14) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+/* Custom Expressive Serif Typography */
+.text-serif-expressive {
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-canvas-alt);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-slate-300);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-slate-400);
+}
+
+/* Interactive link & button normalization */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}

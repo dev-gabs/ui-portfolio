@@ -1,0 +1,113 @@
+.projects-view-content {
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Filter Bar */
+.projects-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.7);
+}
+
+.filter-pills-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-pill-btn {
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-semibold);
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--color-slate-600);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  box-shadow: var(--shadow-xs);
+  transition: all var(--motion-fast) ease;
+}
+
+.filter-pill-btn:hover {
+  background: #ffffff;
+  color: var(--color-navy-900);
+}
+
+.filter-pill-btn.is-active {
+  background: var(--color-navy-800);
+  color: #ffffff;
+  border-color: var(--color-navy-800);
+  box-shadow: var(--shadow-sm);
+}
+
+.archive-counter {
+  font-size: var(--text-xs);
+  color: var(--color-slate-400);
+}
+
+@media (max-width: 640px) {
+  .archive-counter {
+    display: none;
+  }
+}
+
+/* Companion Archive */
+.companion-archive-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.companion-archive-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--text-xs);
+  color: var(--color-slate-500);
+}
+
+.companion-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .companion-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Empty State */
+.projects-empty-state {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-2xl);
+  border: 1px dashed var(--color-slate-300);
+}
+
+.empty-title {
+  color: var(--color-slate-600);
+  margin-bottom: 1rem;
+}
+
+.empty-reset-btn {
+  padding: 0.5rem 1.25rem;
+  background: var(--color-navy-800);
+  color: #ffffff;
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-semibold);
+  box-shadow: var(--shadow-xs);
+}

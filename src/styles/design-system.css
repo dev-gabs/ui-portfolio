@@ -1,0 +1,139 @@
+/**
+ * DESIGN SYSTEM TOKENS — Gabriel Salvador Portfolio
+ * Central source of truth for all visual tokens, metrics, and spatial variables.
+ */
+
+:root {
+  /* ==========================================================================
+     1. COLOR PALETTE & SURFACES
+     ========================================================================== */
+  --color-canvas: #fbfbfe;
+  --color-canvas-alt: #f4f5fa;
+  --color-surface-card: #ffffff;
+  --color-surface-glass: rgba(255, 255, 255, 0.72);
+  --color-surface-glass-solid: rgba(255, 255, 255, 0.92);
+  --color-surface-glass-tinted: rgba(238, 242, 255, 0.65);
+  --color-surface-dark: #0a101f;
+
+  /* Navy & Slate Shades */
+  --color-navy-950: #070b16;
+  --color-navy-900: #0a101f;
+  --color-navy-800: #0d1527;
+  --color-navy-700: #17223b;
+  --color-navy-600: #233252;
+  --color-slate-900: #0f172a;
+  --color-slate-800: #1e293b;
+  --color-slate-700: #334155;
+  --color-slate-600: #475569;
+  --color-slate-500: #64748b;
+  --color-slate-400: #94a3b8;
+  --color-slate-300: #cbd5e1;
+  --color-slate-200: #e2e8f0;
+  --color-slate-100: #f1f5f9;
+  --color-slate-50: #f8fafc;
+
+  /* Accents & Periwinkle / Indigo */
+  --color-accent-periwinkle: #6366f1;
+  --color-accent-indigo: #4f46e5;
+  --color-accent-violet: #7c3aed;
+  --color-accent-soft: #818cf8;
+  --color-accent-soft-rgb: 129, 140, 248;
+  --color-accent-rgb: 99, 102, 241;
+  --color-accent-subtle: rgba(99, 102, 241, 0.08);
+  --color-accent-border: rgba(99, 102, 241, 0.35);
+
+  /* Forest / Atmospheric Tones */
+  --color-forest: #143828;
+  --color-forest-deep: #0e291e;
+  --color-emerald-accent: #10b981;
+
+  /* Semantic Borders */
+  --border-subtle: rgba(226, 232, 240, 0.7);
+  --border-medium: rgba(203, 213, 225, 0.85);
+  --border-glass: rgba(255, 255, 255, 0.85);
+  --border-glass-hover: rgba(99, 102, 241, 0.4);
+
+  /* ==========================================================================
+     2. TYPOGRAPHY
+     ========================================================================== */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-handwritten: 'Caveat', cursive;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 800;
+
+  /* Fluid Display Scales */
+  --text-xs: 0.75rem;    /* 12px */
+  --text-sm: 0.875rem;   /* 14px */
+  --text-base: 1rem;     /* 16px */
+  --text-lg: 1.125rem;   /* 18px */
+  --text-xl: 1.25rem;    /* 20px */
+  --text-2xl: 1.5rem;    /* 24px */
+  --text-3xl: 1.875rem;  /* 30px */
+  --text-4xl: 2.25rem;   /* 36px */
+  --text-5xl: clamp(2.5rem, 5vw, 3.5rem);
+  --text-hero: clamp(3rem, 7vw, 5.25rem);
+  --text-hero-expressive: clamp(3.5rem, 8.5vw, 6.25rem);
+
+  /* ==========================================================================
+     3. SPATIAL DEPTH & Z-INDEX LAYERS
+     ========================================================================== */
+  --z-background-ambient: 0;
+  --z-technical-marks: 10;
+  --z-canvas-content: 20;
+  --z-floating-artifacts: 30;
+  --z-foreground-prisms: 40;
+  --z-mobile-dock: 45;
+  --z-navbar: 50;
+  --z-modal-overlay: 60;
+
+  /* ==========================================================================
+     4. RADII
+     ========================================================================== */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-3xl: 32px;
+  --radius-full: 9999px;
+
+  /* ==========================================================================
+     5. ELEVATION, SHADOWS & BLUR
+     ========================================================================== */
+  --shadow-xs: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+  --shadow-sm: 0 2px 8px -1px rgba(15, 23, 42, 0.06);
+  --shadow-tile: 0 4px 16px -2px rgba(15, 23, 42, 0.04), 0 1px 4px -1px rgba(15, 23, 42, 0.02);
+  --shadow-tile-hover: 0 16px 32px -8px rgba(99, 102, 241, 0.18), 0 4px 12px -2px rgba(15, 23, 42, 0.06);
+  --shadow-capsule: 0 14px 40px -10px rgba(15, 23, 42, 0.12), 0 2px 8px -1px rgba(15, 23, 42, 0.04);
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.06);
+  --shadow-glow-accent: 0 0 28px 4px rgba(99, 102, 241, 0.28);
+  --shadow-glow-subtle: 0 0 16px 2px rgba(99, 102, 241, 0.2);
+
+  --blur-glass: 12px;
+  --blur-capsule: 16px;
+  --blur-ambient: 64px;
+
+  /* ==========================================================================
+     6. MOTION & EASING
+     ========================================================================== */
+  --motion-fast: 180ms;
+  --motion-normal: 320ms;
+  --motion-slow: 500ms;
+  --motion-ambient: 700ms;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce-soft: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Layout widths */
+  --container-max-width: 1280px;
+  --content-max-width: 1120px;
+}

@@ -1,0 +1,107 @@
+.ambient-layers {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: var(--z-background-ambient);
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: var(--radius-full);
+  mix-blend-mode: multiply;
+  user-select: none;
+  filter: blur(var(--blur-ambient));
+  will-change: transform;
+}
+
+.ambient-top-right {
+  top: 3rem;
+  right: -6rem;
+  width: 24rem;
+  height: 24rem;
+  opacity: 0.35;
+}
+
+.orb-gradient-indigo {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: radial-gradient(circle at center, var(--color-accent-periwinkle) 0%, rgba(199, 210, 254, 0.4) 60%, transparent 100%);
+}
+
+.ambient-mid-left {
+  top: 45vh;
+  left: -7rem;
+  width: 20rem;
+  height: 20rem;
+  opacity: 0.28;
+}
+
+.orb-gradient-soft {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: radial-gradient(circle at center, var(--color-accent-soft) 0%, rgba(224, 231, 255, 0.5) 60%, transparent 100%);
+}
+
+/* Foreground Prismatic Edge Vignettes */
+.foreground-prism {
+  position: absolute;
+  user-select: none;
+  z-index: var(--z-foreground-prisms);
+  mix-blend-mode: multiply;
+}
+
+.prism-bottom-left {
+  bottom: -5rem;
+  left: -4rem;
+  width: 18rem;
+  height: 18rem;
+  opacity: 0.65;
+  filter: blur(14px);
+  transform: rotate(-12deg) scale(1.15);
+}
+
+.prism-gradient-forest {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: radial-gradient(circle at 40% 40%, var(--color-forest-deep) 0%, rgba(6, 78, 59, 0.65) 55%, transparent 100%);
+}
+
+.prism-mid-right {
+  bottom: 30vh;
+  right: -5rem;
+  width: 13rem;
+  height: 13rem;
+  opacity: 0.4;
+  filter: blur(20px);
+}
+
+.prism-gradient-emerald {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: radial-gradient(circle at center, var(--color-forest) 0%, rgba(4, 120, 87, 0.5) 60%, transparent 100%);
+}
+
+@media (max-width: 768px) {
+  .ambient-top-right {
+    width: 16rem;
+    height: 16rem;
+    right: -4rem;
+    opacity: 0.25;
+  }
+  .ambient-mid-left {
+    width: 14rem;
+    height: 14rem;
+    left: -4rem;
+    opacity: 0.2;
+  }
+  .prism-bottom-left,
+  .prism-mid-right {
+    opacity: 0.35;
+    filter: blur(24px);
+  }
+}

@@ -1,0 +1,165 @@
+import React from 'react';
+import { ArrowUpRight } from 'lucide-react';
+import { ProjectData } from '../../types/project';
+import { ToolItemData } from '../../types/tool';
+import { BrandIcon } from '../common/BrandIcons';
+import './ProjectItem.css';
+
+interface ProjectItemProps {
+  project: ProjectData;
+  toolsMap: Record<string, ToolItemData>;
+  isHighlighted?: boolean;
+  onHoverStart?: (toolIds: string[]) => void;
+  onHoverEnd?: () => void;
+  onToolHoverStart?: (toolId: string) => void;
+  onToolHoverEnd?: () => void;
+}
+
+export const ProjectItem: React.FC<ProjectItemProps> = ({
+  project,
+  toolsMap,
+  isHighlighted = false,
+  onHoverStart,
+  onHoverEnd,
+  onToolHoverStart,
+  onToolHoverEnd,
+}) => {
+  const isFlagship = project.isFlagship;
+
+  if (isFlagship) {
+    return (
+      <article
+        id={project.id}
+        className={`project-flagship-card group ${isHighlighted ? 'project-card-highlighted' : ''}`}
+        onMouseEnter={() => onHoverStart && onHoverStart(project.tools)}
+        onMouseLeave={() => onHoverEnd && onHoverEnd()}
+      >
+        <div className="flagship-grid">
+          {/* Viewport Image Left */}
+          <div className="flagship-image-container">
+            {project.image ? (
+              <img
+                src={project.image}
+                alt={`${project.title} Showcase`}
+                className="flagship-image"
+                loading="lazy"
+              />
+            ) : (
+              <div
+                className="flagship-image-placeholder"
+                style={{ background: project.gradientBackground }}
+              />
+            )}
+
+            {/* Badges Over Image */}
+            <div className="flagship-floating-badges">
+              <span className="badge-flagship">Flagship Case Study</span>
+              <span className="badge-category font-mono">
+                {project.categoryLabels.join(' · ')}
+              </span>
+            </div>
+
+            <div className="flagship-index-counter font-mono">
+              {project.index}
+            </div>
+          </div>
+
+          {/* Content & Metadata Right */}
+          <div className="flagship-content-pane">
+            <div className="flagship-header-info">
+              <div className="flagship-kicker font-mono">{project.subtitle}</div>
+              <h3 className="flagship-title">{project.title}</h3>
+              <p className="flagship-description">{project.description}</p>
+            </div>
+
+            {/* Two-Way Tools Used Bar with Direct Tooltips */}
+            <div className="flagship-tools-bar">
+              <div className="tools-bar-header font-mono">
+                <span className="tools-bar-label">Tools Used In This Project</span>
+                <span className="tools-bar-hint">Hover to highlight ↗</span>
+              </div>
+              <div className="tools-bar-items">
+                {project.tools.map((toolId) => {
+                  const tool = toolsMap[toolId];
+                  if (!tool) return null;
+                  return (
+                    <div
+                      key={toolId}
+                      className="tools-bar-badge"
+                      title={`${tool.name} (${tool.roleDescription})`}
+                      onMouseEnter={(e) => {
+                        e.stopPropagation();
+                        onToolHoverStart && onToolHoverStart(toolId);
+                      }}
+                      onMouseLeave={(e) => {
+                        e.stopPropagation();
+                        onToolHoverEnd && onToolHoverEnd();
+                      }}
+                    >
+                      <BrandIcon
+                        iconType={tool.iconType}
+                        customBadge={tool.customBadge}
+                        className="brand-micro"
+                      />
+                      <span className="tools-bar-name">{tool.name}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Action Link */}
+            <div className="flagship-footer-action">
+              <a href={project.caseStudyUrl || '#about'} className="flagship-study-link">
+                <span>Explore Full Case Study</span>
+                <ArrowUpRight size={14} />
+              </a>
+              {project.publishedMeta && (
+                <span className="flagship-meta font-mono">{project.publishedMeta}</span>
+              )}
+            </div>
+          </div>
+        </div>
+      </article>
+    );
+  }
+
+  // Companion Project Mini Card
+  return (
+    <article
+      id={project.id}
+      className={`project-companion-card group ${isHighlighted ? 'project-card-highlighted' : ''}`}
+      onMouseEnter={() => onHoverStart && onHoverStart(project.tools)}
+      onMouseLeave={() => onHoverEnd && onHoverEnd()}
+    >
+      <div
+        className="companion-image-box"
+        style={{ background: project.gradientBackground }}
+      >
+        <div className="companion-image-inner">
+          <span className="companion-index font-mono">{project.index}</span>
+          <span className="companion-header-label">{project.subtitle}</span>
+        </div>
+      </div>
+
+      <div className="companion-body">
+        <div className="companion-title-row">
+          <h4 className="companion-title">{project.title}</h4>
+          <ArrowUpRight size={15} className="companion-arrow" />
+        </div>
+        <p className="companion-category">{project.categoryLabels.join(' · ')}</p>
+
+        {/* Tools dot strip */}
+        <div className="companion-tools-row font-mono">
+          <span className="companion-tool-dot" />
+          <span>
+            {project.tools
+              .map((tId) => toolsMap[tId]?.name)
+              .filter(Boolean)
+              .join(' · ')}
+          </span>
+        </div>
+      </div>
+    </article>
+  );
+};

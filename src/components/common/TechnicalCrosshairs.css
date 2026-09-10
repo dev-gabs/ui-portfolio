@@ -1,0 +1,51 @@
+.canvas-crosshairs-wrapper {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: var(--z-technical-marks);
+  overflow: hidden;
+}
+
+.canvas-mark {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-slate-400);
+  letter-spacing: 0.05em;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.75;
+}
+
+.mark-top-left {
+  top: 1.5rem;
+  left: 1.5rem;
+}
+
+.mark-top-right {
+  top: 1.5rem;
+  right: 1.5rem;
+}
+
+.cross-accent {
+  color: var(--color-accent-indigo);
+  font-weight: var(--font-weight-bold);
+  font-size: 12px;
+}
+
+.mark-separator {
+  color: var(--color-slate-300);
+}
+
+@media (max-width: 768px) {
+  .mark-top-left {
+    display: none;
+  }
+  .mark-top-right {
+    top: 0.75rem;
+    right: 1rem;
+    font-size: 9px;
+  }
+}

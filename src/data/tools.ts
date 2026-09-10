@@ -1,0 +1,252 @@
+import { ToolItemData } from '../types/tool';
+
+export const toolsData: ToolItemData[] = [
+  /* ==========================================================================
+     CATEGORY 1: DESIGN & SPATIAL SYSTEMS
+     ========================================================================== */
+  {
+    id: 'tool-figma',
+    name: 'Figma',
+    category: 'design',
+    categoryLabel: 'Design & Spatial Systems',
+    roleDescription: 'UI & Systems',
+    iconType: 'figma',
+    relatedProjectIds: ['project-legal-contract', 'project-eden-app'],
+    isSymbiosisActive: true,
+  },
+  {
+    id: 'tool-illustrator',
+    name: 'Illustrator',
+    category: 'design',
+    categoryLabel: 'Design & Spatial Systems',
+    roleDescription: 'Vectors & Identity',
+    iconType: 'badge',
+    customBadge: {
+      text: 'Ai',
+      bgColor: '#330000',
+      textColor: '#FF9A00',
+    },
+    relatedProjectIds: ['project-legal-contract', 'project-brand-identity'],
+    isSymbiosisActive: true,
+  },
+  {
+    id: 'tool-photoshop',
+    name: 'Photoshop',
+    category: 'design',
+    categoryLabel: 'Design & Spatial Systems',
+    roleDescription: 'Textures & Retouch',
+    iconType: 'badge',
+    customBadge: {
+      text: 'Ps',
+      bgColor: '#001E36',
+      textColor: '#31A8FF',
+    },
+    relatedProjectIds: ['project-brand-identity', 'project-3d-character'],
+  },
+  {
+    id: 'tool-indesign',
+    name: 'InDesign',
+    category: 'design',
+    categoryLabel: 'Design & Spatial Systems',
+    roleDescription: 'Editorial & Print',
+    iconType: 'badge',
+    customBadge: {
+      text: 'Id',
+      bgColor: '#49021F',
+      textColor: '#FF3366',
+    },
+    relatedProjectIds: ['project-brand-identity'],
+  },
+  {
+    id: 'tool-blender',
+    name: 'Blender',
+    category: 'design',
+    categoryLabel: 'Design & Spatial Systems',
+    roleDescription: '3D Artifacts',
+    iconType: 'blender',
+    relatedProjectIds: ['project-3d-character'],
+  },
+
+  /* ==========================================================================
+     CATEGORY 2: DEVELOPMENT & ARCHITECTURE
+     ========================================================================== */
+  {
+    id: 'tool-vscode',
+    name: 'VS Code',
+    category: 'development',
+    categoryLabel: 'Development & Architecture',
+    roleDescription: 'Frontend Craft',
+    iconType: 'vscode',
+    relatedProjectIds: ['project-eden-app'],
+  },
+  {
+    id: 'tool-github',
+    name: 'GitHub',
+    category: 'development',
+    categoryLabel: 'Development & Architecture',
+    roleDescription: 'Version Control',
+    iconType: 'github',
+    relatedProjectIds: ['project-eden-app'],
+  },
+  {
+    id: 'tool-notion',
+    name: 'Notion',
+    category: 'development',
+    categoryLabel: 'Development & Architecture',
+    roleDescription: 'Docs & Systems',
+    iconType: 'badge',
+    customBadge: {
+      text: 'N',
+      bgColor: '#ffffff',
+      textColor: '#0f172a',
+    },
+    relatedProjectIds: ['project-eden-app'],
+  },
+  {
+    id: 'tool-copilot',
+    name: 'Copilot',
+    category: 'development',
+    categoryLabel: 'Development & Architecture',
+    roleDescription: 'Code Companion',
+    iconType: 'copilot',
+    relatedProjectIds: [],
+  },
+  {
+    id: 'tool-cursor',
+    name: 'Cursor',
+    category: 'development',
+    categoryLabel: 'Development & Architecture',
+    roleDescription: 'AI Editor',
+    iconType: 'badge',
+    customBadge: {
+      text: '▲',
+      bgColor: '#000000',
+      textColor: '#ffffff',
+    },
+    relatedProjectIds: [],
+  },
+
+  /* ==========================================================================
+     CATEGORY 3: AI & COGNITIVE WORKFLOW
+     ========================================================================== */
+  {
+    id: 'tool-chatgpt',
+    name: 'ChatGPT',
+    category: 'ai',
+    categoryLabel: 'AI & Cognitive Workflow',
+    roleDescription: 'Legal Synthesis',
+    iconType: 'chatgpt',
+    relatedProjectIds: ['project-legal-contract'],
+    isSymbiosisActive: true,
+  },
+  {
+    id: 'tool-gemini',
+    name: 'Gemini',
+    category: 'ai',
+    categoryLabel: 'AI & Cognitive Workflow',
+    roleDescription: 'Multimodal',
+    iconType: 'badge',
+    customBadge: {
+      text: '✦',
+      bgColor: 'linear-gradient(135deg, #3b82f6, #6366f1, #9333ea)',
+      textColor: '#ffffff',
+    },
+    relatedProjectIds: [],
+  },
+  {
+    id: 'tool-monday',
+    name: 'Monday',
+    category: 'ai',
+    categoryLabel: 'AI & Cognitive Workflow',
+    roleDescription: 'Sprint Tracking',
+    iconType: 'badge',
+    customBadge: {
+      text: 'm.',
+      bgColor: '#f43f5e',
+      textColor: '#ffffff',
+    },
+    relatedProjectIds: [],
+  },
+  {
+    id: 'tool-obsidian',
+    name: 'Obsidian',
+    category: 'ai',
+    categoryLabel: 'AI & Cognitive Workflow',
+    roleDescription: 'Knowledge Graph',
+    iconType: 'obsidian',
+    relatedProjectIds: [],
+  },
+  {
+    id: 'tool-trello',
+    name: 'Trello',
+    category: 'ai',
+    categoryLabel: 'AI & Cognitive Workflow',
+    roleDescription: 'Kanban Flow',
+    iconType: 'trello',
+    relatedProjectIds: [],
+  },
+
+  /* ==========================================================================
+     CATEGORY 4: VIDEO, MOTION & ACOUSTIC
+     ========================================================================== */
+  {
+    id: 'tool-davinci',
+    name: 'DaVinci',
+    category: 'video',
+    categoryLabel: 'Video, Motion & Acoustic',
+    roleDescription: 'Color Grading',
+    iconType: 'badge',
+    customBadge: {
+      text: 'DR',
+      bgColor: 'linear-gradient(135deg, #ec4899, #f59e0b)',
+      textColor: '#ffffff',
+    },
+    relatedProjectIds: ['project-3d-character'],
+  },
+  {
+    id: 'tool-premiere',
+    name: 'Premiere',
+    category: 'video',
+    categoryLabel: 'Video, Motion & Acoustic',
+    roleDescription: 'Video Assembly',
+    iconType: 'badge',
+    customBadge: {
+      text: 'Pr',
+      bgColor: '#00005B',
+      textColor: '#9999FF',
+    },
+    relatedProjectIds: [],
+  },
+  {
+    id: 'tool-aftereffects',
+    name: 'After Effects',
+    category: 'video',
+    categoryLabel: 'Video, Motion & Acoustic',
+    roleDescription: 'Motion UI',
+    iconType: 'badge',
+    customBadge: {
+      text: 'Ae',
+      bgColor: '#00005B',
+      textColor: '#cf96fd',
+    },
+    relatedProjectIds: [],
+  },
+  {
+    id: 'tool-audacity',
+    name: 'Audacity',
+    category: 'video',
+    categoryLabel: 'Video, Motion & Acoustic',
+    roleDescription: 'Audio Cleaning',
+    iconType: 'audacity',
+    relatedProjectIds: [],
+  },
+  {
+    id: 'tool-ableton',
+    name: 'Ableton',
+    category: 'video',
+    categoryLabel: 'Video, Motion & Acoustic',
+    roleDescription: 'Soundscapes',
+    iconType: 'ableton',
+    relatedProjectIds: [],
+  },
+];

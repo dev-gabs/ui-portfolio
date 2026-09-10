@@ -1,0 +1,42 @@
+/**
+ * RESPONSIVE RULES & CONTAINER CONSTRAINTS
+ */
+
+/* Standard site container */
+.site-container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1rem, 4vw, 2.5rem);
+  padding-right: clamp(1rem, 4vw, 2.5rem);
+}
+
+/* Tighter reading container */
+.content-container {
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Ultrawide containment — prevents layout explosion above 2560px */
+@media (min-width: 2560px) {
+  .site-container {
+    max-width: 1600px;
+  }
+}
+
+@media (min-width: 3440px) {
+  .site-container {
+    max-width: 1800px;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  :root {
+    --text-hero: 2.75rem;
+    --text-hero-expressive: 3.25rem;
+  }
+}
