@@ -48,6 +48,22 @@
   height: 1.5rem;
 }
 
+/* SVG Tool Icon Tile Variant */
+.brand-svg-tile {
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  overflow: hidden;
+  padding: 0;
+}
+
+.brand-svg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 0.35rem;
+  transition: transform var(--motion-normal) var(--ease-out-expo);
+}
+
 /* Mini size variant for Project Cards and Floating Stacks */
 .brand-icon-box.brand-mini {
   width: 1.875rem;
@@ -59,6 +75,11 @@
 .brand-icon-box.brand-mini svg {
   width: 1rem;
   height: 1rem;
+}
+
+.brand-icon-box.brand-mini .brand-svg-img,
+.brand-icon-box.brand-micro .brand-svg-img {
+  padding: 0.15rem;
 }
 
 .brand-icon-box.brand-micro {

@@ -49,6 +49,12 @@ body {
   font-style: italic;
 }
 
+/* Handwritten / Caveat utility — used by sticky notes, floating annotations */
+.font-handwritten {
+  font-family: var(--font-handwritten);
+  font-weight: 400;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 7px;

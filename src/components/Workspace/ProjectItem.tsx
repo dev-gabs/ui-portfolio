@@ -8,23 +8,30 @@ import './ProjectItem.css';
 interface ProjectItemProps {
   project: ProjectData;
   toolsMap: Record<string, ToolItemData>;
+  computedIndex?: string;
+  isFlagship?: boolean;
   isHighlighted?: boolean;
   onHoverStart?: (toolIds: string[]) => void;
   onHoverEnd?: () => void;
   onToolHoverStart?: (toolId: string) => void;
   onToolHoverEnd?: () => void;
+  onSelectProject?: (projectId: string) => void;
 }
 
 export const ProjectItem: React.FC<ProjectItemProps> = ({
   project,
   toolsMap,
+  computedIndex,
+  isFlagship: propIsFlagship,
   isHighlighted = false,
   onHoverStart,
   onHoverEnd,
   onToolHoverStart,
   onToolHoverEnd,
+  onSelectProject,
 }) => {
-  const isFlagship = project.isFlagship;
+  const isFlagship = propIsFlagship ?? project.isFlagship;
+  const displayIndex = computedIndex || project.index || '01 / 01';
 
   if (isFlagship) {
     return (
@@ -60,7 +67,7 @@ export const ProjectItem: React.FC<ProjectItemProps> = ({
             </div>
 
             <div className="flagship-index-counter font-mono">
-              {project.index}
+              {displayIndex}
             </div>
           </div>
 
@@ -125,20 +132,40 @@ export const ProjectItem: React.FC<ProjectItemProps> = ({
   }
 
   // Companion Project Mini Card
+  const statusClass = project.status
+    ? `status-${project.status.toLowerCase().replace(' ', '-')}`
+    : '';
+
   return (
     <article
       id={project.id}
       className={`project-companion-card group ${isHighlighted ? 'project-card-highlighted' : ''}`}
+      style={{ '--companion-accent': project.accentColor } as React.CSSProperties}
       onMouseEnter={() => onHoverStart && onHoverStart(project.tools)}
       onMouseLeave={() => onHoverEnd && onHoverEnd()}
+      onClick={() => onSelectProject && onSelectProject(project.id)}
+      title="Click to feature this case study in the main viewport"
     >
       <div
         className="companion-image-box"
-        style={{ background: project.gradientBackground }}
+        style={{ background: project.gradientBackground || 'var(--color-navy-900)' }}
       >
-        <div className="companion-image-inner">
-          <span className="companion-index font-mono">{project.index}</span>
-          <span className="companion-header-label">{project.subtitle}</span>
+        {(project.thumbnailImage || project.image) ? (
+          <img
+            src={project.thumbnailImage || project.image}
+            alt={project.title}
+            className="companion-thumb-img"
+            loading="lazy"
+          />
+        ) : (
+          <div className="companion-image-inner">
+            <span className="companion-index font-mono">{displayIndex}</span>
+            <span className="companion-header-label">{project.subtitle}</span>
+          </div>
+        )}
+        <div className="companion-swap-overlay font-mono">
+          <span>Feature Case</span>
+          <ArrowUpRight size={12} />
         </div>
       </div>
 
@@ -147,7 +174,20 @@ export const ProjectItem: React.FC<ProjectItemProps> = ({
           <h4 className="companion-title">{project.title}</h4>
           <ArrowUpRight size={15} className="companion-arrow" />
         </div>
+
         <p className="companion-category">{project.categoryLabels.join(' · ')}</p>
+
+        {/* Year + Status */}
+        {(project.year || project.status) && (
+          <div className="companion-meta-row">
+            {project.year && <span className="companion-year">{project.year}</span>}
+            {project.status && (
+              <span className={`companion-status-badge ${statusClass}`}>
+                {project.status}
+              </span>
+            )}
+          </div>
+        )}
 
         {/* Tools dot strip */}
         <div className="companion-tools-row font-mono">
@@ -159,6 +199,15 @@ export const ProjectItem: React.FC<ProjectItemProps> = ({
               .join(' · ')}
           </span>
         </div>
+
+        {/* Tags */}
+        {project.tags && project.tags.length > 0 && (
+          <div className="companion-tags-row">
+            {project.tags.map((tag) => (
+              <span key={tag} className="companion-tag">{tag}</span>
+            ))}
+          </div>
+        )}
       </div>
     </article>
   );

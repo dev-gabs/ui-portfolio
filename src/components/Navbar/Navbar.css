@@ -47,7 +47,7 @@
   border-radius: var(--radius-full);
   padding: 0.5rem 1.25rem;
   background-image: radial-gradient(rgba(99, 102, 241, 0.12) 1px, transparent 1px);
-  background-size: 8px 8px;
+  background-size: 5.9px 5.9px;
 }
 
 /* Left: Identity */
@@ -213,10 +213,12 @@
   .nav-designer-role {
     display: none;
   }
+
   .nav-header.nav-initial,
   .nav-header.nav-scrolled {
     padding: 0.75rem 1rem;
   }
+
   .nav-inner-container.capsule-state {
     padding: 0.4rem 0.85rem;
   }

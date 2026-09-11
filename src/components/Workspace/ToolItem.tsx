@@ -35,6 +35,8 @@ export const ToolItem: React.FC<ToolItemProps> = ({
       <div className="tool-icon-wrapper">
         <BrandIcon
           iconType={tool.iconType}
+          svgIcon={tool.svgIcon}
+          tileBg={tool.tileBg}
           customBadge={tool.customBadge}
           className="tool-module-icon"
         />

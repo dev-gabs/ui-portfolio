@@ -61,6 +61,52 @@
   }
 }
 
+/* macOS Stage Manager 3D Window Pull Swap Animation */
+.mac-stage-container {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  will-change: transform, opacity, filter;
+}
+
+.mac-stage-container.mac-swap-out {
+  animation: macStagePullOut 0.22s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.mac-stage-container.mac-swap-in {
+  animation: macStagePullIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes macStagePullOut {
+  0% {
+    opacity: 1;
+    transform: perspective(1200px) scale(1) translateY(0) rotateX(0deg) translateZ(0);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 0.15;
+    transform: perspective(1200px) scale(0.9) translateY(-24px) rotateX(5deg) translateZ(-120px);
+    filter: blur(5px);
+  }
+}
+
+@keyframes macStagePullIn {
+  0% {
+    opacity: 0.15;
+    transform: perspective(1200px) scale(0.92) translateY(24px) rotateX(-5deg) translateZ(-100px);
+    filter: blur(5px);
+  }
+  60% {
+    opacity: 0.95;
+    transform: perspective(1200px) scale(1.015) translateY(-2px) rotateX(1deg) translateZ(10px);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1200px) scale(1) translateY(0) rotateX(0deg) translateZ(0);
+    filter: blur(0px);
+  }
+}
+
 /* Companion Archive */
 .companion-archive-wrapper {
   display: flex;
@@ -76,17 +122,83 @@
   color: var(--color-slate-500);
 }
 
+/* Scroll hint arrow */
+.companion-scroll-hint {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: var(--color-slate-400);
+  font-size: var(--text-xs);
+  animation: scroll-hint-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes scroll-hint-pulse {
+  0%, 100% { opacity: 0.5; transform: translateX(0); }
+  50%       { opacity: 1;   transform: translateX(4px); }
+}
+
+/* Horizontal scroll track */
+.companion-scroll-track-outer {
+  position: relative;
+}
+
 .companion-grid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: row;
   gap: 1.25rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 0.75rem; /* space for custom scrollbar */
+  /* hide native scrollbar; custom bar below */
+  scrollbar-width: none;
+}
+
+.companion-grid::-webkit-scrollbar {
+  display: none;
+}
+
+/* Thicker, rounded, draggable custom scrollbar track */
+.companion-scroll-track {
+  height: 8px;
+  background: rgba(226, 232, 240, 0.75);
+  border: 1px solid rgba(203, 213, 225, 0.5);
+  border-radius: var(--radius-full);
+  position: relative;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+  touch-action: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.companion-scroll-track:hover {
+  background: rgba(203, 213, 225, 0.75);
+  border-color: var(--color-slate-300);
+}
+
+.companion-scroll-thumb {
+  height: 100%;
+  background: var(--color-navy-800);
+  border-radius: var(--radius-full);
+  cursor: grab;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);
+  transition: background 0.15s ease;
+}
+
+.companion-scroll-thumb:hover {
+  background: var(--color-accent-indigo);
+}
+
+.companion-scroll-thumb:active,
+.companion-scroll-track.is-dragging .companion-scroll-thumb {
+  cursor: grabbing;
+  background: var(--color-accent-indigo);
 }
 
 @media (min-width: 640px) {
-  .companion-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  /* no-op — cards stay in horizontal scroll regardless of breakpoint */
 }
+
 
 /* Empty State */
 .projects-empty-state {

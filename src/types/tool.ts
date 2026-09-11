@@ -11,6 +11,8 @@ export interface ToolItemData {
   categoryLabel: string;
   roleDescription: string;
   iconType: string;
+  svgIcon?: string;
+  tileBg?: string;
   customBadge?: {
     text: string;
     bgColor: string;

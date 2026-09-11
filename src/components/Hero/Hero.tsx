@@ -113,7 +113,7 @@ export const Hero: React.FC<HeroProps> = ({
           {/* Translucent plinth glow */}
           <div className="hero-plinth-glow" aria-hidden="true" />
 
-          {/* Character Centerpiece */}
+          {/* Character Centerpiece & Anchored Spatial Artifacts */}
           <div className="hero-character-wrapper">
             <img
               src={heroIllustration}
@@ -121,59 +121,59 @@ export const Hero: React.FC<HeroProps> = ({
               className="hero-character-img"
               loading="eager"
             />
+
+            {/* Spatial Artifact 1: Sticky Note */}
+            <FloatingObject
+              depth={0.8}
+              animationVariant="float-1"
+              className="artifact-sticky-note"
+              onRegister={registerElement}
+              onUnregister={unregisterElement}
+            >
+              <div className="sticky-note-card font-handwritten">
+                Better systems.<br />Happier people. :)
+              </div>
+            </FloatingObject>
+
+            {/* Spatial Artifact 2: Technical Document Pill */}
+            <FloatingObject
+              depth={0.5}
+              animationVariant="float-2"
+              className="artifact-doc-pill"
+              onRegister={registerElement}
+              onUnregister={unregisterElement}
+            >
+              <div className="doc-pill-card font-mono">
+                <span className="doc-badge">UX/UI</span>
+                <span className="doc-filename">Legal Contract.pdf</span>
+                <span className="doc-coord">x: 420.5</span>
+              </div>
+            </FloatingObject>
+
+            {/* Spatial Artifact 3: Floating 3D Tool Strip */}
+            <FloatingObject
+              depth={1.1}
+              animationVariant="float-3"
+              className="artifact-tool-strip"
+              onRegister={registerElement}
+              onUnregister={unregisterElement}
+            >
+              <div className="tool-strip-card">
+                <BrandIcon iconType="figma" className="brand-micro" />
+                <BrandIcon
+                  iconType="badge"
+                  customBadge={{ text: 'Ps', bgColor: '#001E36', textColor: '#31A8FF' }}
+                  className="brand-micro"
+                />
+                <BrandIcon
+                  iconType="badge"
+                  customBadge={{ text: 'Ai', bgColor: '#330000', textColor: '#FF9A00' }}
+                  className="brand-micro"
+                />
+                <BrandIcon iconType="blender" className="brand-micro" />
+              </div>
+            </FloatingObject>
           </div>
-
-          {/* Spatial Artifact 1: Sticky Note */}
-          <FloatingObject
-            depth={0.8}
-            animationVariant="float-1"
-            className="artifact-sticky-note"
-            onRegister={registerElement}
-            onUnregister={unregisterElement}
-          >
-            <div className="sticky-note-card font-handwritten">
-              Better systems.<br />Happier people. :)
-            </div>
-          </FloatingObject>
-
-          {/* Spatial Artifact 2: Technical Document Pill */}
-          <FloatingObject
-            depth={0.5}
-            animationVariant="float-2"
-            className="artifact-doc-pill"
-            onRegister={registerElement}
-            onUnregister={unregisterElement}
-          >
-            <div className="doc-pill-card font-mono">
-              <span className="doc-badge">UX/UI</span>
-              <span className="doc-filename">Legal Contract.pdf</span>
-              <span className="doc-coord">x: 420.5</span>
-            </div>
-          </FloatingObject>
-
-          {/* Spatial Artifact 3: Floating 3D Tool Strip */}
-          <FloatingObject
-            depth={1.1}
-            animationVariant="float-3"
-            className="artifact-tool-strip"
-            onRegister={registerElement}
-            onUnregister={unregisterElement}
-          >
-            <div className="tool-strip-card">
-              <BrandIcon iconType="figma" className="brand-micro" />
-              <BrandIcon
-                iconType="badge"
-                customBadge={{ text: 'Ps', bgColor: '#001E36', textColor: '#31A8FF' }}
-                className="brand-micro"
-              />
-              <BrandIcon
-                iconType="badge"
-                customBadge={{ text: 'Ai', bgColor: '#330000', textColor: '#FF9A00' }}
-                className="brand-micro"
-              />
-              <BrandIcon iconType="blender" className="brand-micro" />
-            </div>
-          </FloatingObject>
         </div>
       </div>
 
